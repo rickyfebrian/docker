@@ -1,0 +1,21 @@
+  version: "3.8"
+
+  services:
+    app:
+      container_name: app
+      build:
+       context: "./"
+       dockerfile: Dockerfile
+      image: app:latest
+      ports:
+      - "3000:3000"
+      volumes:
+      - type: volume
+        source: volume_app 
+        target: "/data/public"
+        read_only: false
+
+
+  volumes:
+    volume_app:
+      name: volume_app
